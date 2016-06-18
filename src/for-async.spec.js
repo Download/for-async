@@ -2,8 +2,8 @@
 import log from 'picolog';
 import forAsync from './for-async';
 
-describe('forAsync', done => {
-	it('can be used to iterate over an array', () => {
+describe('forAsync', () => {
+	it('can be used to iterate over an array', (done) => {
 		const arr = ['one', 'two', 'three'];
 		const expectedResult = arr.join('');
 		let result = '';
@@ -16,7 +16,7 @@ describe('forAsync', done => {
 		});
 	});
 
-	it('can execute async work on each item', () => {
+	it('can execute async work on each item', (done) => {
 		const arr = ['one', 'two', 'three'];
 		const expectedResult = arr.join('');
 		let result = '';
@@ -24,7 +24,7 @@ describe('forAsync', done => {
 			return new Promise(resolve => setTimeout(() => {
 				result += item;
 				resolve();
-			}, 50))
+			}, 1))
 		})
 		.then(function() {
 			expect(result).to.equal(expectedResult);
@@ -32,7 +32,7 @@ describe('forAsync', done => {
 		});
 	});
 
-	it('passes `item` and `idx` to the callback on each iteration', () => {
+	it('passes `item` and `idx` to the callback on each iteration', (done) => {
 		const arr = ['one', 'two', 'three'];
 		const expectedResult = arr.join('');
 		const expectedIndexes = "012";
@@ -43,7 +43,7 @@ describe('forAsync', done => {
 				result += item;
 				resultIndexes += idx;
 				resolve();
-			}, 50))
+			}, 1))
 		})
 		.then(function() {
 			expect(result).to.equal(expectedResult);
@@ -52,14 +52,13 @@ describe('forAsync', done => {
 		});
 	});
 
-	it('can be aborted by throwing from sync code', () => {
+	it('can be aborted by throwing from sync code', (done) => {
 		const arr = ['one', 'two', 'three'];
 		forAsync(arr, (item, idx) => {
 			throw new Error('aborted');
 		})
 		.then(function() {
-			expect(false).to.equal(true);
-			done();
+			done(new Error('Failed to abort as expected'));
 		})
 		.catch(function(error) {
 			expect(error.message).to.equal('aborted');
@@ -67,16 +66,15 @@ describe('forAsync', done => {
 		});
 	});
 
-	it('can be aborted by rejecting the promise from async code', () => {
+	it('can be aborted by rejecting the promise from async code', (done) => {
 		const arr = ['one', 'two', 'three'];
 		forAsync(arr, (item, idx) => {
 			return new Promise((resolve, reject) => setTimeout(() => {
-				reject('aborted');
-			}, 50))
+				reject(new Error('aborted'));
+			}, 1))
 		})
 		.then(function() {
-			expect(false).to.equal(true);
-			done();
+			done(new Error('Failed to abort as expected'));
 		})
 		.catch(function(error) {
 			expect(error.message).to.equal('aborted');

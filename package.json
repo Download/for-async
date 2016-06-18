@@ -1,6 +1,6 @@
 {
   "name": "for-async",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Helper function to ease doing async work in a loop",
   "main": "lib/for-async.min.js",
   "esnext:main": "src/for-async.js",
@@ -15,7 +15,7 @@
   "scripts": {
     "build-umd": "webpack --output-path lib --output-filename for-async.umd.js --output-library-target umd \"./for-async.js\" ",
     "build-min": "webpack -p --output-path lib --output-filename for-async.min.js --output-library-target umd \"./for-async.js\" ",
-    "build": "npm run build-umd && npm run build-min",
+    "build": "cross-env NODE_ENV=production && npm run build-umd && npm run build-min",
     "build-test": "webpack --output-path lib --output-filename for-async.spec.js \"./for-async.spec.js\" && mocha \"lib/for-async.spec.js\" ",
     "release": "npm run build && npm run build-test",
     "test": "mocha --require src/test-helper.js \"src/**/*.spec.js\"",
@@ -53,6 +53,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.3.13",
     "chai": "^3.4.1",
+    "cross-env": "^1.0.8",
     "mocha": "^2.3.4",
     "mocha-loader": "^0.7.1",
     "path": "^0.12.7",
