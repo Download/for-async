@@ -1,4 +1,4 @@
-![version](https://img.shields.io/npm/v/for-async.svg) ![license](https://img.shields.io/npm/l/for-async.svg) ![installs](https://img.shields.io/npm/dt/for-async.svg) ![build](https://img.shields.io/travis/Download/for-async.svg) ![mind BLOWN](https://img.shields.io/badge/mind-BLOWN-ff69b4.svg)
+﻿![version](https://img.shields.io/npm/v/for-async.svg) ![license](https://img.shields.io/npm/l/for-async.svg) ![installs](https://img.shields.io/npm/dt/for-async.svg) ![build](https://img.shields.io/travis/Download/for-async.svg) ![mind BLOWN](https://img.shields.io/badge/mind-BLOWN-ff69b4.svg)
 
 # for-async <sup><sub>v1.0.0</sub></sup>
 
@@ -215,7 +215,7 @@ Constructive feedback most appreciated!
 
 ## Copyright
 
-� 2016, [Stijn de Witt](http://StijnDeWitt.com). Some rights reserved.
+© 2016, [Stijn de Witt](http://StijnDeWitt.com). Some rights reserved.
 
 
 ## License
