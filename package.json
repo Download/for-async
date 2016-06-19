@@ -1,6 +1,6 @@
 {
   "name": "for-async",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Helper function to ease doing async work in a loop",
   "main": "lib/for-async.min.js",
   "esnext:main": "src/for-async.js",
