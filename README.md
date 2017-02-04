@@ -2,6 +2,8 @@
 
 # for-async <sup><sub>v1.0.0</sub></sup>
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Download/for-async.svg)](https://greenkeeper.io/)
+
 **Helper function to ease doing async work in a loop**
 
 
