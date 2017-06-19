@@ -59,7 +59,7 @@
     "path": "^0.12.7",
     "picolog": "^1.0.0",
     "source-map-support": "^0.4.0",
-    "webpack": "^2.2.1",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {}
